@@ -1,0 +1,145 @@
+
+nav{
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    .nav-links{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+
+    }
+}
+
+
+ul.links{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.6rem;
+    
+    .link a{
+        display: block;
+        text-align: center;
+        color: rgba(255,255,255, 1);
+        font-size: 1rem;
+        font-weight: 600;
+        transition: color .25s ease-in-out;
+        
+        &:hover, &:active, &:focus{
+            color: var(--color-dark-text);  
+        }
+    }
+}
+
+.icons{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    gap: .5rem;
+     
+    img{
+        display: block;
+        border-radius: 50%;
+        padding: .25rem;
+        cursor: pointer;
+        transition: all .35s ease-in-out;
+        background-color: rgba(255,255,255, .9);
+
+        &:hover{
+            background-color: var(--color-dark-text);  
+        }
+    }
+}
+
+
+.burger{
+    width: 30px;
+    span{
+      width:30px;
+      height: 3px;
+      background: white;
+      display: block;
+      &:not(:last-child){
+        margin-bottom: 5px;
+      }
+    }
+    display: none;
+  }
+
+//////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width: 1152px){
+    .icons{
+        display: none;
+    }
+    nav{
+        grid-template-columns: auto 1fr;
+        justify-items: end;
+    }
+    .logo{
+        width: 120px;
+    }      
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width: 1032px){
+
+    nav{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+        "logo burger"
+        "links links";
+        overflow: hidden;
+    }
+    
+    nav .links{   
+        grid-area: links;
+        
+        grid-auto-flow: row;
+        gap: .5rem; 
+        height: 0;
+        transform: translateY(100%);
+        transition: all .35s ease-in-out; 
+        width: 100%; 
+        background-color: var(--color-primary);
+
+        .link a{
+            padding: .5rem 2rem;
+            border-radius: 0;
+            font-size: .8rem;
+        }
+    }
+
+    nav .links.show{   
+        height: 100%;
+        transform: translateY(0%);
+    }
+    
+    .logo{
+        grid-area: logo;
+
+        justify-self: start;
+        img{
+            min-width: 80px;
+        }
+    }
+    
+    .burger{
+        display: block !important;
+        grid-area: burger; 
+        cursor: pointer;
+        justify-self: end;
+        transition: all .5s ease;
+        transform-origin: center;
+    }
+    
+    .burger.close{
+        transform: rotate(-180deg);  
+    }
+
+    
+}
