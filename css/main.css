@@ -1501,10 +1501,10 @@ section#travel-blog {
 }
 section#contact {
   display: grid;
-  grid-template-columns: 1fr repeat(3, minmax(0, 433.33px)) 1fr;
-  grid-template-rows: 431px 248px -webkit-max-content;
-  grid-template-rows: 431px 248px max-content;
-  grid-template-areas: " .  contact-title  contact-title  contact-title  . " " .  contact-email  contact-phone  contact-address  . " " .  .  contact-socials  .  . ";
+  grid-template-columns: 1fr repeat(3, minmax(0, 400px)) 1fr;
+  grid-template-rows: 431px minmax(200px, -webkit-min-content) -webkit-max-content;
+  grid-template-rows: 431px minmax(200px, min-content) max-content;
+  grid-template-areas: " .  contact-title  contact-title  contact-title  . " " .  boxes  boxes  boxes  . " " .  .  contact-socials  .  . ";
 }
 section#contact .contact-title {
   grid-area: contact-title;
@@ -1514,19 +1514,14 @@ section#contact .contact-marker {
   grid-column: 3/4;
   grid-row: 1/3;
 }
-section#contact .contact-email {
-  grid-area: contact-email;
-  align-self: center;
-  justify-self: end;
-}
-section#contact .contact-phone {
-  grid-area: contact-phone;
+section#contact .contact-boxes {
+  grid-area: boxes;
   align-self: center;
   justify-self: center;
-}
-section#contact .contact-address {
-  grid-area: contact-address;
-  align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
 }
 section#contact .contact-socials {
   grid-area: contact-socials;
@@ -1617,13 +1612,12 @@ section#contact .contact-bg-color {
 }
 
 .contact-card {
-  padding-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -1665,9 +1659,10 @@ section#contact .contact-bg-color {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
 }
 .contact-socials .icons .icon {
   width: 50px;
@@ -1677,6 +1672,62 @@ section#contact .contact-bg-color {
   background-color: hsl(0, 0%, 80%);
 }
 
+@media screen and (max-width: 630px) {
+  section#contact {
+    grid-template-rows: 350px minmax(200px, -webkit-min-content) -webkit-max-content;
+    grid-template-rows: 350px minmax(200px, min-content) max-content;
+  }
+  .contact-boxes {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    gap: 2rem;
+    padding-block: 4rem;
+  }
+  .contact-marker {
+    padding-bottom: 11rem;
+    width: 70%;
+    height: 70%;
+  }
+  .contact-title {
+    -webkit-padding-before: 3rem;
+            padding-block-start: 3rem;
+    padding-inline: 1rem;
+  }
+  .contact-title .title-wrapper {
+    max-width: 400px;
+  }
+  .contact-title .title-wrapper h2 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .contact-title .title-wrapper p {
+    font-size: 0.9rem;
+  }
+  .contact-card {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+  }
+  .contact-card .contact-icon img {
+    display: block;
+  }
+  .contact-card .contact-info .info-title {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+  }
+  .contact-card .contact-info .info-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
 footer {
   background-color: var(--color-primary);
   width: 100%;
