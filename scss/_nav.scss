@@ -97,25 +97,42 @@ ul.links{
     }
     
     nav .links{   
-        grid-area: links;
-        
-        grid-auto-flow: row;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: .5rem; 
-        height: 0;
-        transform: translateY(100%);
-        transition: all .35s ease-in-out; 
-        width: 100%; 
-        background-color: var(--color-primary);
+        position: absolute;
+        min-width: fit-content;
+        max-width: 250px;
+        width: 100%;
+        right: 0;
+        top:6rem;
+        left: 0;
+        margin: 0 auto;
+        padding-block: 32px;
+        padding-inline: 32px;
+        
+        z-index: 2;
+        transition: all .25s ease-out; 
+        background-color: rgba(0,0,0,.95);
+        border-radius: 20px;
+
+        transform: translateY(-150%);
 
         .link a{
             padding: .5rem 2rem;
             border-radius: 0;
             font-size: .8rem;
+            width: 160px;
+            border-radius: 8px;
+            &:hover,
+            &:focus{
+                background-color: var(--color-primary);
+            }
         }
     }
 
     nav .links.show{   
-        height: 100%;
         transform: translateY(0%);
     }
     
@@ -132,9 +149,10 @@ ul.links{
         display: block !important;
         grid-area: burger; 
         cursor: pointer;
-        justify-self: end;
+        align-self: end;
         transition: all .5s ease;
         transform-origin: center;
+        margin-block-end: .25rem;
     }
     
     .burger.close{

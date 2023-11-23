@@ -89,24 +89,48 @@ ul.links .link a:hover, ul.links .link a:active, ul.links .link a:focus {
     overflow: hidden;
   }
   nav .links {
-    grid-area: links;
-    grid-auto-flow: row;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 0.5rem;
-    height: 0;
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-    -webkit-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
+    position: absolute;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    max-width: 250px;
     width: 100%;
-    background-color: var(--color-primary);
+    right: 0;
+    top: 6rem;
+    left: 0;
+    margin: 0 auto;
+    padding-block: 32px;
+    padding-inline: 32px;
+    z-index: 2;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 20px;
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
   }
   nav .links .link a {
     padding: 0.5rem 2rem;
     border-radius: 0;
     font-size: 0.8rem;
+    width: 160px;
+    border-radius: 8px;
+  }
+  nav .links .link a:hover, nav .links .link a:focus {
+    background-color: var(--color-primary);
   }
   nav .links.show {
-    height: 100%;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
   }
@@ -121,11 +145,13 @@ ul.links .link a:hover, ul.links .link a:active, ul.links .link a:focus {
     display: block !important;
     grid-area: burger;
     cursor: pointer;
-    justify-self: end;
+    align-self: end;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -webkit-transform-origin: center;
             transform-origin: center;
+    -webkit-margin-after: 0.25rem;
+            margin-block-end: 0.25rem;
   }
   .burger.close {
     -webkit-transform: rotate(-180deg);
