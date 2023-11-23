@@ -66,8 +66,13 @@ body{
       justify-self: center;
     }
   }
-  
+
 
 }
 
+@media screen and (max-width: 450px){
 
+    header{
+    padding-block-end: 2.5rem !important;
+  }
+}
