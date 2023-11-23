@@ -179,6 +179,16 @@ h1 {
   text-align: center;
 }
 
+@media screen and (max-width: 731px) {
+  section#home h1 {
+    line-height: 3rem;
+  }
+}
+@media screen and (max-width: 465px) {
+  section#home h1 {
+    line-height: 2rem;
+  }
+}
 img.home-bg {
   grid-column: 1/-1;
   grid-row: 1/span 2;
