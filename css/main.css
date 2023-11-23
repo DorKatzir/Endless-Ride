@@ -1744,6 +1744,7 @@ footer .footer-content {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-inline: 2rem;
 }
 footer .footer-content p.copy1 {
   color: whitesmoke;
@@ -1751,12 +1752,21 @@ footer .footer-content p.copy1 {
   text-align: center;
 }
 footer .footer-content p.copy2 {
-  color: var(--color-dark-text);
+  color: black;
   font-size: 0.9rem;
   font-weight: bold;
   text-align: center;
 }
 
+@media screen and (max-width: 450px) {
+  .footer-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1rem;
+  }
+}
 :root {
   --color-primary: rgb(205, 10, 45);
   --color-secondary: hsl(0, 0%, 93%);
