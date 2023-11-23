@@ -176,6 +176,9 @@ h1 {
 }
 
 @media screen and (max-width: 731px) {
+  section#home {
+    padding-inline: 2rem;
+  }
   section#home h1 {
     line-height: 3rem;
   }
