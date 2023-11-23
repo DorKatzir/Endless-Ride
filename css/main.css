@@ -1312,10 +1312,10 @@ section#spl-feature .tours-right .tours-right-content .tours-text p {
 }
 @media screen and (max-width: 444px) {
   section#spl-feature {
-    height: 1354px;
     display: grid;
     grid-template-columns: auto repeat(2, minmax(auto, 1fr)) auto;
-    grid-template-rows: 450px 400px 400px;
+    grid-template-rows: repeat(3, -webkit-min-content);
+    grid-template-rows: repeat(3, min-content);
     grid-template-areas: "  tours-title   " "  tours-left    " "  tours-right   ";
   }
   section#spl-feature .tours-title {
@@ -1339,8 +1339,10 @@ section#spl-feature .tours-right .tours-right-content .tours-text p {
     justify-self: center;
     align-self: center;
     padding: 0 !important;
+    min-width: 300px;
   }
   section#spl-feature .tours-left .tours-left-content {
+    width: 100%;
     justify-self: center;
     -ms-flex-item-align: center;
         align-self: center;
@@ -1349,15 +1351,30 @@ section#spl-feature .tours-right .tours-right-content .tours-text p {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    min-width: 300px;
+  }
+  section#spl-feature .tours-left .tours-left-content .tours-data {
+    width: inherit;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  section#spl-feature .tours-left .tours-left-content .tours-text {
+    max-width: none;
+    text-align: left;
   }
   section#spl-feature .tours-right {
-    margin-top: 4rem;
+    min-width: 300px;
     grid-area: tours-right;
     justify-self: center;
     align-self: center;
     padding: 0 !important;
   }
   section#spl-feature .tours-right .tours-right-content {
+    width: 100%;
     justify-self: center;
     -ms-flex-item-align: center;
         align-self: center;
@@ -1366,6 +1383,19 @@ section#spl-feature .tours-right .tours-right-content .tours-text p {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  section#spl-feature .tours-right .tours-right-content .tours-data {
+    width: inherit;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  section#spl-feature .tours-right .tours-right-content .tours-text {
+    max-width: none;
+    text-align: left;
   }
   section#spl-feature .tours-bg-red {
     grid-area: tours-left;

@@ -578,10 +578,10 @@ section#spl-feature{
         
         // margin-bottom: 8rem;
 
-        height: 1354px;
+        // height: 1354px;
         display:grid;
         grid-template-columns: auto repeat(2, minmax(auto,1fr)) auto;
-        grid-template-rows: 450px 400px 400px;
+        grid-template-rows: repeat(3, min-content);
         grid-template-areas: 
                 "  tours-title   "
                 "  tours-left    "
@@ -615,32 +615,52 @@ section#spl-feature{
           justify-self: center;
           align-self: center;
           padding: 0 !important;
+          min-width: 300px;
           
 
           .tours-left-content{
+            width: 100%;
             justify-self: center;
             align-self: center;
             row-gap: 1rem;
             justify-items: center;
             align-items: center;
+            min-width: 300px;
+            .tours-data{
+              width: inherit;
+              flex-direction: row;
+              justify-content: space-around;
+            }
+              .tours-text{
+                max-width: none;
+                text-align: left;
+              }
           }
           
         }
         
         .tours-right{
-            // height: 537px;
-            margin-top: 4rem;
+            min-width: 300px;
             grid-area: tours-right;
             justify-self: center;
             align-self: center;
             padding: 0 !important;
             .tours-right-content{
-                
+              width: 100%;
               justify-self: center;
               align-self: center;
               row-gap: 1rem;
               justify-items: center;
               align-items: center;
+              .tours-data{
+                width: inherit;
+                flex-direction: row;
+                justify-content: space-around;
+              }
+              .tours-text{
+                max-width: none;
+                text-align: left;
+              }
             }
             
         }
